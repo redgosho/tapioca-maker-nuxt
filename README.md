@@ -1,3 +1,7 @@
+# tapioca maker
+タピオカ画像を作ってDLするサービス
+タピオカのSVGデータは[こちら](https://iconlab.kentakomiya.com/1086)からお借りしました。
+
 # nuxt-pra
 
 ## Build Setup
