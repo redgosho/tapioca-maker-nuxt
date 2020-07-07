@@ -1,30 +1,65 @@
 <template>
-  <section class="container">
-    <div>
-      <Tapioca
-      :color='color'
-       />
-    </div>
-  </section>
+  <v-container>
+    <v-row
+      :align="alignment"
+      :justify="justify"
+    >
+      <v-col cols='12'>
+        <v-row
+          :align="alignment"
+          :justify="justify"
+        >
+          <div
+            class="pa-6 text-center grey lighten-2 rounded-lg"
+          >
+            <Tapioca
+              :color='color'
+            />
+          </div>
+
+        </v-row>
+      </v-col>
+        <v-col cols='12'>
+          <ColorTab />
+        </v-col>
+    </v-row>
+  </v-container>
 </template>
 <script>
-import Tapioca from '~/components/items/Tapioca.vue' // コンポーネント読み込み
+// コンポーネント読み込み
+import Tapioca from '~/components/items/Tapioca.vue'
+import ColorTab from '~/components/Atom/ColorTab.vue'
+// import ColorPalette from '~/components/items/ColorPalette.vue'
+
 export default {
   components: {
-    Tapioca // コンポーネントの登録
+    Tapioca,
+    ColorTab
+  },
+  computed: {
+    color () {
+      return this.$store.getters.color
+    }
   },
   data () {
     return {
-      color: {
-        cup: 'fill:rgb(249,249,249)',
-        backCup: 'fill:rgb(234,234,234)',
-        teaFront: 'fill:rgb(208,181,147)',
-        teaTop: 'fill:rgb(218,194,164)',
-        tapioca: 'fill:rgb(120,88,63)',
-        straw: 'fill:rgb(234,70,69)',
-        lid: 'fill:rgb(244,244,244)',
-        strawTop: 'fill:rgb(194,59,58)'
-      }
+      alignmentsAvailable: [
+        'start',
+        'center',
+        'end',
+        'baseline',
+        'stretch'
+      ],
+      alignment: 'center',
+      dense: false,
+      justifyAvailable: [
+        'start',
+        'center',
+        'end',
+        'space-around',
+        'space-between'
+      ],
+      justify: 'center'
     }
   }
 }
