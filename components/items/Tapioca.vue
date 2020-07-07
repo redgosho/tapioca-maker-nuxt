@@ -1,5 +1,5 @@
 <template>
-  <svg viewBox="0 0 378 512" xmlns="http://www.w3.org/2000/svg" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2">
+  <svg :width="width" :height="height" :viewBox="viewport" xmlns="http://www.w3.org/2000/svg" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2">
   <path d="M356.82 112H21.18l39.058 390.995A9.992 9.992 0 0 0 70.177 512h237.645a9.992 9.992 0 0 0 9.94-9.005L356.818 112z" :style="color.cup"/>
   <path d="M340.837 112l-38.092 366.072c-1.06 10.189-9.638 17.928-19.87 17.928H95.124c-10.233 0-18.81-7.74-19.87-17.928L37.163 112h303.674z" :style="color.backCup"/>
   <path d="M336.674 152l-33.93 326.072c-1.06 10.189-9.637 17.928-19.87 17.928H95.125c-10.233 0-18.81-7.74-19.87-17.928L41.325 152h295.35z" :style="color.teaFront"/>
@@ -17,6 +17,16 @@ export default {
       type: Object,
       require: true,
       default: () => ({ count: 0 })
+    }
+  },
+  data () {
+    return {
+      width: window.parent.screen.height * 2 / 5,
+      height: window.parent.screen.height * 2 / 5,
+      ratio: 1,
+      dx: 0,
+      dy: 0,
+      viewport: '0 0 378 512'
     }
   }
 }
