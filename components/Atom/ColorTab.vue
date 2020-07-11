@@ -42,7 +42,7 @@ export default {
     return {
       tab: null,
       items: [
-        'ドリンク', 'タピオカ', 'ストロー', 'フラ', 'カップ'
+        'ドリンク', 'タピオカ', 'ストロー', 'フタ', 'カップ'
       ],
       alignmentsAvailable: [
         'start',
