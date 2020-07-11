@@ -16,7 +16,26 @@ export const getters = {
   }
 }
 export const mutations = {
-  changeColor (state) {
-    state.counter++
+  changeColor (state, payload) {
+    console.log('payload:', payload)
+    const partsList = {
+      tea: ['teaTop', 'teaFront'],
+      tapioca: ['tapioca'],
+      straw: ['straw', 'strawTop'],
+      lid: ['lid'],
+      cup: ['backCup', 'cup']
+    }
+    const color = `fill:rgb(${payload.color.r},${payload.color.g},${payload.color.b})`
+    const colorDark = `fill:rgb(${payload.color.r - 50},${payload.color.g - 50},${payload.color.b - 50})`
+    partsList[payload.partsType].forEach((partsType, index) => {
+      console.log('partsType:', partsType)
+      console.log('color:', color)
+      console.log('colorDark:', colorDark)
+      if (index === 0) {
+        state.color[partsType] = color
+      } else {
+        state.color[partsType] = colorDark
+      }
+    })
   }
 }

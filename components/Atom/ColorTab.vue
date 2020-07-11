@@ -18,14 +18,14 @@
 
     <v-tabs-items v-model="tab">
       <v-tab-item
-        v-for="item in items"
+        v-for="(item, index) in items"
         :key="item"
       >
         <v-card
           color="basil"
           flat
         >
-          <ColorPalette />
+          <ColorPalette :partsType='partsType[index]' />
         </v-card>
       </v-tab-item>
     </v-tabs-items>
@@ -43,6 +43,9 @@ export default {
       tab: null,
       items: [
         'ドリンク', 'タピオカ', 'ストロー', 'フタ', 'カップ'
+      ],
+      partsType: [
+        'tea', 'tapioca', 'straw', 'lid', 'cup'
       ],
       alignmentsAvailable: [
         'start',
